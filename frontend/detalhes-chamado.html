@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalhes do chamado · LiteDesk</title>
+  <link rel="stylesheet" href="css/global.css"><link rel="stylesheet" href="css/pages.css">
+  <script src="js/config.js" defer></script><script src="js/api.js" defer></script><script src="js/utils.js" defer></script><script src="js/auth.js" defer></script><script src="js/detalhes-chamado.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html"><span class="brand-mark" aria-hidden="true">L</span><span>LiteDesk</span></a><p class="nav-caption">ESPAÇO DE TRABALHO</p>
+      <nav class="side-nav" aria-label="Navegação principal"><a class="nav-link" href="dashboard.html"><span class="nav-icon" aria-hidden="true">▦</span>Painel</a><a class="nav-link is-active" href="chamados.html" aria-current="page"><span class="nav-icon" aria-hidden="true">◎</span>Chamados</a><a class="nav-link" href="novo-chamado.html"><span class="nav-icon" aria-hidden="true">＋</span>Novo chamado</a><a class="nav-link" href="usuarios.html" data-admin-only hidden><span class="nav-icon" aria-hidden="true">♙</span>Usuários</a></nav>
+      <div class="sidebar-bottom"><a class="nav-link" href="perfil.html"><span class="nav-icon" aria-hidden="true">○</span>Meu perfil</a><a class="nav-link nav-login-link" href="index.html"><span class="nav-icon" aria-hidden="true">↗</span>Entrar</a></div>
+    </aside>
+    <main class="main-content"><header class="topbar"><span class="breadcrumb"><a href="chamados.html">Chamados</a> / Detalhes</span><p class="connection-label" data-connection-status>API não configurada</p></header>
+      <section class="page-content detail-page">
+        <div class="page-heading"><div><p class="eyebrow">ATENDIMENTO <span aria-hidden="true">·</span> <span id="ticket-number">Chamado</span></p><h1 id="ticket-title">Detalhes do chamado</h1><p class="muted" id="ticket-description">A descrição será carregada pela API.</p></div><span class="status-badge" id="ticket-status">—</span></div>
+        <section class="detail-panel" aria-label="Informações do chamado"><h2>Informações</h2><dl class="detail-grid">
+          <div><dt>Solicitante</dt><dd id="ticket-requester">—</dd></div><div><dt>Técnico responsável</dt><dd id="ticket-assignee">—</dd></div>
+          <div><dt>Categoria</dt><dd id="ticket-category">—</dd></div><div><dt>Prioridade</dt><dd id="ticket-priority">—</dd></div>
+          <div><dt>Data de abertura</dt><dd id="ticket-created">—</dd></div><div><dt>Número do chamado</dt><dd id="ticket-id">—</dd></div>
+        </dl></section>
+        <form class="detail-panel" id="ticket-controls" hidden>
+          <h2>Ações do atendimento</h2>
+          <div class="field-grid">
+            <div class="field"><label for="control-status">Status</label><select id="control-status" required><option value="" disabled>Selecione</option><option>Aberto</option><option>Pendente</option><option>Em atendimento</option><option>Finalizado</option></select></div>
+            <div class="field"><label for="control-priority">Prioridade</label><select id="control-priority" required><option value="" disabled>Selecione</option><option>Baixa</option><option>Média</option><option>Alta</option><option>Crítica</option></select></div>
+          </div>
+          <div class="form-actions"><p class="form-message" id="ticket-control-message" role="status" aria-live="polite"></p><button class="button button-secondary" id="assume-ticket" type="button">Assumir chamado</button><button class="button button-primary" type="submit">Atualizar chamado</button></div>
+        </form>
+        <section class="detail-panel history-panel"><div class="section-heading"><div><h2>Histórico de movimentações</h2><p class="muted">Atualizações registradas neste chamado.</p></div></div><ol class="history-list" id="ticket-history"></ol><p class="empty-state" id="history-state" role="status">O histórico será exibido quando a API estiver conectada.</p></section>
+        <section class="detail-panel"><h2>Registrar atualização</h2><form id="update-form"><div class="field"><label for="update">Atualização</label><textarea id="update" name="update" rows="4" placeholder="Descreva o andamento do atendimento"></textarea></div><div class="field"><label for="solution">Solução</label><textarea id="solution" name="solution" rows="3" placeholder="Registre a solução, quando aplicável"></textarea></div><div class="form-actions"><p class="form-message" id="update-message" role="status" aria-live="polite"></p><button class="button button-primary" type="submit">Registrar atualização</button></div><p class="form-footnote">As alterações só serão salvas após a conexão com a API.</p></form></section>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
